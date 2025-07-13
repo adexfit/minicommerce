@@ -2,8 +2,7 @@
 
 import { useProducts } from "@/hooks/useProducts";
 import { ProductType } from "@/types/types";
-import { Image } from "lucide-react";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -21,22 +20,39 @@ const SingleProduct = ({ params }: ProductProps) => {
     if (error) return <p>Error loading Products</p>;
 
     const { slug } = params;
+    const productId: number = Number(slug);
 
-    const product = productData?.find((u) => u.id === slug);
+    const product = productData?.find((u) => u.id === productId);
+    // const product = productData?.find(
+    //     (u: ProductType) => console.log(typeof u.id),
+    //     console.log(typeof slug)
+    // );
+    // console.log(productData?.[slug]);
+    // console.log(productData?.[slug].id);
+    // console.log(product);
 
     if (!product) return <p>No product found</p>;
 
     return (
-        <div className="flex py-8 w-[80%] mx-auto">
-            <div className="flex-1">{/* <Image alt="product image" /> */}</div>
+        <div className="flex py-8 w-[80%] mx-auto gap-6">
+            <div className="flex-1 relative">
+                <Image
+                    priority
+                    src={product.image}
+                    width={425}
+                    height={500}
+                    alt="product image"
+                />
+            </div>
             <div className="flex-1">
-                <h1 className="font-bold text-2xl">SingleProduct</h1>
-                <p className="text-lg text-gray-600">$200</p>
+                <h1 className="font-bold text-2xl">{product.name}</h1>
+                <p className="text-lg text-gray-600">{`$ ${product.price}`}</p>
                 <p className="pt-4">
-                    Setting the bar as one of the loudest speakers in its class,
-                    the Kilburn is a compact, stout-hearted hero with a
-                    well-balanced audio which boasts a clear midrange and
-                    extended highs for a sound.
+                    <span className="font-bold text-grey-500">
+                        Description:
+                    </span>{" "}
+                    <br />
+                    {product.description}
                 </p>
                 <span className="pt-4 flex flex-wrap gap-4">
                     <button className="bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700">
