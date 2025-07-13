@@ -1,29 +1,36 @@
 import Image, { StaticImageData } from "next/image";
-import products from "./data/products";
+import products from "../db/data/products";
 
 type ProductType = {
+    id: number;
     image: StaticImageData;
     name: string;
     price: number;
 };
 
-const Home = ({ image, name, price }: ProductType) => {
+const Home = ({ id, image, name, price }: ProductType) => {
     return (
         <div>
-            <main>
-                <div> Catalogue</div>
-                <div>
+            <main className="container mx-auto p-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {products.map((product) => {
                         return (
-                            <div key={product.name}>
+                            <div
+                                className="mx-auto shadow-lg cursor-pointer scale-90 hover:scale-100 transition-all duration-300 ease-in-out"
+                                key={product.id}
+                            >
                                 <Image
                                     priority
                                     src={product.image}
                                     alt={product.name}
-                                    className="w-auto"
+                                    className="w-auto "
                                 />
-                                <li>{product.name}</li>
-                                <p>{product.price}</p>
+                                <div className="bg-gray-50 p-4 ">
+                                    <p className="text-bold text-lg">
+                                        {product.name}
+                                    </p>
+                                    <p className="text-gray-500">{`$ ${product.price}`}</p>
+                                </div>
                             </div>
                         );
                     })}
