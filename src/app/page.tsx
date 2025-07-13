@@ -2,9 +2,9 @@
 
 import Footer from "@/components/Footer";
 import { useProducts } from "@/hooks/useProducts";
-import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
+import header from "../../public/assets/header.png";
 
 const Home = () => {
     const { data, isLoading, error } = useProducts();
@@ -13,6 +13,12 @@ const Home = () => {
 
     return (
         <div>
+            <header className=" hidden md:flex bg-[url('/assets/header.png')] bg-cover bg-center h-64 flex flex-col items-center justify-center text-black">
+                <p className="text-2xl font-extrabold text-gray-600">Home</p>
+            </header>
+            <header className="flex justify-center md:hidden mt-8">
+                <p className="text-lg font-extrabold text-gray-600">Products</p>
+            </header>
             <main className="container mx-auto p-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {data?.map((product) => {
@@ -31,6 +37,7 @@ const Home = () => {
                                         alt={product.name}
                                         width={285}
                                         height={301}
+                                        className="object-cover w-full"
                                     />
                                     <div className="bg-gray-50 p-4 ">
                                         <p className="text-bold text-lg">
