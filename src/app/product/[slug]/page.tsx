@@ -1,16 +1,55 @@
+"use client";
+
+import { useProducts } from "@/hooks/useProducts";
+import { ProductType } from "@/types/types";
+import { Image } from "lucide-react";
+import { StaticImageData } from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+
 type ProductProps = {
     params: {
-        slug: string;
+        slug: number;
     };
 };
 
 const SingleProduct = ({ params }: ProductProps) => {
+    // const [product, setProduct] = useState<ProductType[]>([]);
+
+    const { data: productData, isLoading, error } = useProducts();
+    if (isLoading) return <p>Loading...</p>;
+    if (error) return <p>Error loading Products</p>;
+
     const { slug } = params;
 
+    const product = productData?.find((u) => u.id === slug);
+
+    if (!product) return <p>No product found</p>;
+
     return (
-        <div>
-            <h1>SingleProduct: {slug}</h1>
-            <p>This is the dynamic page for "{slug}".</p>
+        <div className="flex py-8 w-[80%] mx-auto">
+            <div className="flex-1">{/* <Image alt="product image" /> */}</div>
+            <div className="flex-1">
+                <h1 className="font-bold text-2xl">SingleProduct</h1>
+                <p className="text-lg text-gray-600">$200</p>
+                <p className="pt-4">
+                    Setting the bar as one of the loudest speakers in its class,
+                    the Kilburn is a compact, stout-hearted hero with a
+                    well-balanced audio which boasts a clear midrange and
+                    extended highs for a sound.
+                </p>
+                <span className="pt-4 flex flex-wrap gap-4">
+                    <button className="bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700">
+                        Add to cart
+                    </button>
+
+                    <Link href={"/cart"}>
+                        <button className="bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded hover:bg-gray-300">
+                            View cart
+                        </button>
+                    </Link>
+                </span>
+            </div>
         </div>
     );
 };

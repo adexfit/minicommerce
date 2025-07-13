@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import { useProducts } from "@/hooks/useProducts";
 import Image from "next/image";
 import Link from "next/link";
-import header from "../../public/assets/header.png";
 
 const Home = () => {
     const { data, isLoading, error } = useProducts();
@@ -14,7 +13,12 @@ const Home = () => {
     return (
         <div>
             <header className=" hidden md:flex bg-[url('/assets/header.png')] bg-cover bg-center h-64 flex flex-col items-center justify-center text-black">
-                <p className="text-2xl font-extrabold text-gray-600">Home</p>
+                <h1 className="text-2xl font-extrabold text-gray-600">
+                    MiniCommerce
+                </h1>
+                <p className="text-sm text-gray-600">
+                    Buy your dream furniture...
+                </p>
             </header>
             <header className="flex justify-center md:hidden mt-8">
                 <p className="text-lg font-extrabold text-gray-600">Products</p>
@@ -24,7 +28,7 @@ const Home = () => {
                     {data?.map((product) => {
                         return (
                             <Link
-                                href={`/product/${product.name.toLowerCase().replace(/\s+/g, "-")}`}
+                                href={`/product/${product.id}`}
                                 key={product.id}
                             >
                                 <div
@@ -57,3 +61,5 @@ const Home = () => {
 };
 
 export default Home;
+
+// {product.name.toLowerCase().replace(/\s+/g, "-")}

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import OurQueryProvider from "@/components/providers/OurQueryProvider";
 import NavBar from "../components/NavBar";
+import queryClient from "../lib/react-query-client";
 
 const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -30,8 +31,10 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
-                <NavBar />
-                <OurQueryProvider>{children}</OurQueryProvider>
+                <OurQueryProvider client={queryClient}>
+                    <NavBar />
+                    {children}
+                </OurQueryProvider>
             </body>
         </html>
     );

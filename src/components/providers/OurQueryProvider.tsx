@@ -4,11 +4,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ReactNode, useState } from "react";
 
-interface Props {
-    children: ReactNode;
+interface OurQueryProviderProps {
+    children: React.ReactNode;
+    client: QueryClient;
 }
 
-const OurQueryProvider = ({ children }: Props) => {
+const OurQueryProvider = ({ children, client }: OurQueryProviderProps) => {
     const [queryClient] = useState(() => new QueryClient());
 
     return (
