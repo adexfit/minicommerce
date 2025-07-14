@@ -104,7 +104,7 @@ const CartPage = () => {
             <span className="flex flex-row justify-around items-center mt-4">
                 <button
                     onClick={handleclearCart}
-                    className="mt-4 border-2 border-red-400 text-red-500   hover:bg-red-500 hover:text-white px-4 py-2 rounded-lg"
+                    className="mt-4 border-2 border-gray-500 text-gray-600   hover:bg-red-500 hover:text-white px-4 py-2 rounded-lg"
                 >
                     Clear Cart
                 </button>
