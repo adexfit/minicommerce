@@ -42,7 +42,7 @@ const NavBar = () => {
 
                     <Link
                         href="/"
-                        className="hidden md:display-flex text-gray-700 hover:text-custom-color transition-colors"
+                        className="hidden md:flex text-gray-700 hover:text-custom-color transition-colors"
                         aria-label="Home"
                     >
                         All Products

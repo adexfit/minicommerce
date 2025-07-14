@@ -29,4 +29,4 @@ type cartProductProp = {
     image: string | StaticImageData;
 } & ParamProp;
 
-export type { ProductType, cartProductProp };
+export type { ProductType, cartProductProp, ParamProp };
