@@ -1,5 +1,5 @@
 {
-    "plugind": ["tailwindcss", "unused-imports"],
+    "plugin": ["tailwindcss", "unused-imports"],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 2021,

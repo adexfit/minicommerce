@@ -3,7 +3,7 @@
 import Spinner from "@/components/Spinner";
 import { useProducts } from "@/hooks/useProducts";
 import { useCartStore } from "@/store/cart-store";
-import { cartProductProp, ProductType } from "@/types/types";
+import { cartProductProp } from "@/types/types";
 import { ShoppingCart } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
