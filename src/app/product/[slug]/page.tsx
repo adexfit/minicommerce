@@ -39,7 +39,7 @@ const SingleProduct = ({ params }: ParamProp) => {
         <div className="flex flex-col md:flex-row py-8 md:w-4/5 mx-auto gap-6 px-4">
             <div className="flex-1 relative">
                 <ToastContainer />
-                <h1 className="font-bold text-2xl text-gray-800">
+                <h1 className="text-center md:text-left font-bold text-2xl text-gray-800">
                     {product.name}
                 </h1>
                 <Image
@@ -59,7 +59,7 @@ const SingleProduct = ({ params }: ParamProp) => {
                     <br />
                     {product.description}
                 </p>
-                <span className="pt-4 flex flex-wrap gap-4">
+                <span className="pt-4 flex justify-center flex-wrap gap-4">
                     <button
                         className="flex gap-2 items-center bg-custom-color2 text-white font-semibold py-2 px-4 rounded hover:bg-gray-800 hover:text-gray-100 transition-all duration-300 ease-in-out"
                         onClick={handleAddToCart}
