@@ -16,7 +16,9 @@
     "rules": {
         "semi": "error",
         "tailwindcss/no-custom-classname": "off",
-        "tailwindcss/classnames-order": "off"
+        "tailwindcss/classnames-order": "off",
+        "tailwindcss/no-contradicting-classname": "off",
+        "tailwindcss/no-unused-classname": "off"
     },
     "settings": {
         "tailwindcss": {
