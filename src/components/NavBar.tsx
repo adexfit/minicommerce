@@ -21,6 +21,8 @@ const NavBar = () => {
                 <div className="hidden md:flex w-1/2">
                     <input
                         type="text"
+                        id="search"
+                        name="search"
                         placeholder="Search..."
                         className="w-full px-4 py-2 rounded-md bg-white text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-custom-color2"
                     />
@@ -32,6 +34,8 @@ const NavBar = () => {
                         onClick={() => setShowSearch((prev) => !prev)}
                         className="md:hidden text-black hover:text-gray-600 transition-colors"
                         aria-label="Toggle Search"
+                        id="search"
+                        name="search"
                     >
                         <Search className="h-6 w-6" />
                     </button>
@@ -65,8 +69,10 @@ const NavBar = () => {
                 <div className="container mx-auto px-4">
                     <input
                         type="text"
+                        id="search2"
+                        name="search2"
                         placeholder="Search..."
-                        className="w-full px-4 py-2 rounded-md bg-white text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-2 rounded-md bg-white text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-custom-color2"
                     />
                 </div>
             </div>
