@@ -1,19 +1,16 @@
 "use client";
 
 import { useProducts } from "@/hooks/useProducts";
-import { ProductType } from "@/types/types";
+import { useCartStore } from "@/store/cart-store";
+import { cartProductProp, ProductType } from "@/types/types";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
-type ProductProps = {
-    params: {
-        slug: number;
-    };
-};
-
-const SingleProduct = ({ params }: ProductProps) => {
-    // const [product, setProduct] = useState<ProductType[]>([]);
+const SingleProduct = ({ params }: cartProductProp) => {
+    const items = useCartStore((state) => state.items);
+    const addToCart = useCartStore((state) => state.addToCart);
+    const addedTocartNotice = () => toast("product added to cart successfully");
 
     const { data: productData, isLoading, error } = useProducts();
     if (isLoading) return <p>Loading...</p>;
@@ -23,18 +20,23 @@ const SingleProduct = ({ params }: ProductProps) => {
     const productId: number = Number(slug);
 
     const product = productData?.find((u) => u.id === productId);
-    // const product = productData?.find(
-    //     (u: ProductType) => console.log(typeof u.id),
-    //     console.log(typeof slug)
-    // );
-    // console.log(productData?.[slug]);
-    // console.log(productData?.[slug].id);
-    // console.log(product);
 
     if (!product) return <p>No product found</p>;
 
+    const handleAddToCart = () => {
+        addToCart({
+            id: product.id.toString(),
+            name: product.name,
+            price: product.price,
+            quantity: 1,
+            image: product.image,
+        });
+        addedTocartNotice();
+    };
+
     return (
         <div className="flex py-8 w-[80%] mx-auto gap-6">
+            <ToastContainer />
             <div className="flex-1 relative">
                 <Image
                     priority
@@ -55,13 +57,16 @@ const SingleProduct = ({ params }: ProductProps) => {
                     {product.description}
                 </p>
                 <span className="pt-4 flex flex-wrap gap-4">
-                    <button className="bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700">
+                    <button
+                        className="bg-gray-600 text-white font-semibold py-2 px-4 rounded hover:text-gray-600 hover:bg-gray-200"
+                        onClick={handleAddToCart}
+                    >
                         Add to cart
                     </button>
 
                     <Link href={"/cart"}>
-                        <button className="bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded hover:bg-gray-300">
-                            View cart
+                        <button className="bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded hover:bg-gray-800 hover:text-gray-100 transition-all duration-300 ease-in-out">
+                            Go to cart
                         </button>
                     </Link>
                 </span>

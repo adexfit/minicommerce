@@ -33,8 +33,16 @@ const NavBar = () => {
                     </button>
 
                     <Link
+                        href="/"
+                        className="text-gray-700 hover:text-black transition-colors"
+                        aria-label="Home"
+                    >
+                        All Products
+                    </Link>
+
+                    <Link
                         href="/cart"
-                        className="text-black hover:text-gray-600 transition-colors"
+                        className="text-gray-700 hover:text-black transition-colors"
                         aria-label="Cart"
                     >
                         <ShoppingCart className="h-6 w-6" />

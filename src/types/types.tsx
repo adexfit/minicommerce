@@ -8,4 +8,14 @@ type ProductType = {
     description: string;
 };
 
-export type { ProductType };
+type cartProductProp = {
+    params: {
+        slug: number;
+    };
+    id: string;
+    name: string;
+    price: number;
+    image?: string;
+};
+
+export type { ProductType, cartProductProp };
