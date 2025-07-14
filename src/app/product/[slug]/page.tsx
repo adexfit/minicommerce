@@ -36,7 +36,7 @@ const SingleProduct = ({ params }: ParamProp) => {
     };
 
     return (
-        <div className="flex flex-col md:flex-row py-8 md:w-4/5 mx-auto gap-6">
+        <div className="flex flex-col md:flex-row py-8 md:w-4/5 mx-auto gap-6 px-4">
             <div className="flex-1 relative">
                 <ToastContainer />
                 <h1 className="font-bold text-2xl text-gray-800">

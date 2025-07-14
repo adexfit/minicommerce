@@ -70,14 +70,14 @@ const CartPage = () => {
                             <div className="flex items-center gap-2">
                                 <button
                                     onClick={() => decrement(item.id)}
-                                    className="bg-gray-200 py-1 px-4 rounded hover:bg-amber-200"
+                                    className="bg-gray-200 py-1 px-4 rounded hover:bg-gray-300 font-bold"
                                 >
                                     -
                                 </button>
                                 <span>{item.quantity}</span>
                                 <button
                                     onClick={() => increment(item.id)}
-                                    className="bg-gray-200 py-1 px-4 rounded hover:bg-amber-200"
+                                    className="bg-gray-200 py-1 px-4 rounded hover:bg-gray-300 font-bold"
                                 >
                                     +
                                 </button>
