@@ -5,8 +5,6 @@ import { useCartStore } from "@/store/cart-store";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import { useState } from "react";
 
 const CartPage = () => {
     const items = useCartStore((state) => state.items);
@@ -15,8 +13,6 @@ const CartPage = () => {
     const decrement = useCartStore((state) => state.decrement);
     const clearCart = useCartStore((state) => state.clearCart);
     const total = useCartStore((state) => state.getTotalPrice());
-
-    const [isNewOrder, setIsNewOrder] = useState(false);
 
     if (items.length === 0) {
         return (
@@ -44,9 +40,8 @@ const CartPage = () => {
         clearCart();
     };
 
-    const handlePlaceOrder = () => {
-        clearCart();
-        window.location.href = `/orderplaced/${Date.now() + Math.random()}`;
+    const handleGoToCheckout = () => {
+        window.location.href = `/checkout`;
     };
 
     return (
@@ -105,7 +100,7 @@ const CartPage = () => {
                 ))}
                 <hr />
             </ul>
-            <p className="pt-2">Cart Total: {total}</p>
+            <p className="pt-2 text-center">Cart Total: ${total}</p>
             <span className="flex flex-row justify-around items-center mt-4">
                 <button
                     onClick={handleclearCart}
@@ -114,10 +109,10 @@ const CartPage = () => {
                     Clear Cart
                 </button>
                 <button
-                    onClick={handlePlaceOrder}
+                    onClick={handleGoToCheckout}
                     className=" mt-4 font-bold bg-primary-text-color text-white   hover:bg-custom-color hover:text-white px-4 py-2 rounded-lg"
                 >
-                    Place order
+                    Checkout
                 </button>
             </span>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { ShoppingCart } from "lucide-react";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 
 const OrderPlaced = () => {
@@ -12,6 +13,12 @@ const OrderPlaced = () => {
             <p className="text-center py-4 text-gray-600 text-sm">
                 Order ID: {slug}
             </p>
+            <Link
+                href="/"
+                className="px-4 py-2 rounded-lg text-white bg-primary-text-color hover:bg-custom-color font-bold w-auto mx-auto mt-4 text-center transition-all ease-in-out duration-300"
+            >
+                Home
+            </Link>
         </div>
     );
 };
