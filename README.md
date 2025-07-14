@@ -29,4 +29,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deploy on Netlify
 
-This is the url to the deployed app on netlify [Live link](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This is the url to the deployed app on netlify [Live link](https://stupendous-cuchufli-cac44d.netlify.app/) for more details.
