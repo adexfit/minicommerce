@@ -39,14 +39,6 @@ const NavBar = () => {
                         <Search className="h-6 w-6" />
                     </button>
 
-                    {/* <Link
-                        href="/"
-                        className="hidden md:flex text-gray-700 hover:text-custom-color transition-colors"
-                        aria-label="Home"
-                    >
-                        All Products
-                    </Link> */}
-
                     <Link
                         href="/cart"
                         className="text-black hover:text-custom-color transition-colors relative"
