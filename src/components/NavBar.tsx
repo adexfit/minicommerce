@@ -9,7 +9,6 @@ const NavBar = () => {
     const items = useCartStore((state) => state.items);
     const [showSearch, setShowSearch] = useState(false);
 
-
     return (
         <nav className="p-5 bg-white text-gray-800 shadow-md sticky top-0 z-50 ">
             <div className="container mx-auto px-4  flex items-center justify-between">
@@ -40,13 +39,13 @@ const NavBar = () => {
                         <Search className="h-6 w-6" />
                     </button>
 
-                    <Link
+                    {/* <Link
                         href="/"
                         className="hidden md:flex text-gray-700 hover:text-custom-color transition-colors"
                         aria-label="Home"
                     >
                         All Products
-                    </Link>
+                    </Link> */}
 
                     <Link
                         href="/cart"
