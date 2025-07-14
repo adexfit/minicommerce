@@ -1,28 +1,32 @@
 "use client";
 
+import { useCartStore } from "@/store/cart-store";
 import { Search, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
 const NavBar = () => {
+    const items = useCartStore((state) => state.items);
     const [showSearch, setShowSearch] = useState(false);
+    const [cartItemsNo, setCartItemsNo] = useState(items.length);
 
     return (
-        <header className=" bg-white text-black shadow-md sticky top-0 z-50">
-            <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        <nav className="p-5 bg-white text-gray-800 shadow-md sticky top-0 z-50 ">
+            <div className="container mx-auto px-4  flex items-center justify-between">
                 <Link href="/" className="text-primary text-xl font-bold">
-                    MiniCommerce
+                    <span className="text-custom-color">Mini</span>
+                    Commerce
                 </Link>
 
                 <div className="hidden md:flex w-1/2">
                     <input
                         type="text"
                         placeholder="Search..."
-                        className="w-full px-4 py-2 rounded-md bg-white text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-2 rounded-md bg-white text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-custom-color2"
                     />
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-6">
                     {/* Search Icon for mobile */}
                     <button
                         onClick={() => setShowSearch((prev) => !prev)}
@@ -34,7 +38,7 @@ const NavBar = () => {
 
                     <Link
                         href="/"
-                        className="text-gray-700 hover:text-black transition-colors"
+                        className="hidden md:display-flex text-gray-700 hover:text-custom-color transition-colors"
                         aria-label="Home"
                     >
                         All Products
@@ -42,10 +46,13 @@ const NavBar = () => {
 
                     <Link
                         href="/cart"
-                        className="text-gray-700 hover:text-black transition-colors"
+                        className="text-black hover:text-custom-color transition-colors relative"
                         aria-label="Cart"
                     >
                         <ShoppingCart className="h-6 w-6" />
+                        <p className="bg-custom-color rounded-full text-white text-xs px-[6px] py-[3px] absolute -top-4 -right-3">
+                            {items.length}
+                        </p>
                     </Link>
                 </div>
             </div>
@@ -63,16 +70,8 @@ const NavBar = () => {
                     />
                 </div>
             </div>
-        </header>
+        </nav>
     );
 };
 
 export default NavBar;
-
-// import image1 from "../../../public/assets/Image1.png";
-// import image2 from "../../../public/assets/Image2.png";
-// import image3 from "../../../public/assets/Image3.png";
-// import image4 from "../../../public/assets/Image4.png";
-// import image5 from "../../../public/assets/Image5.png";
-// import image6 from "../../../public/assets/Image6.png";
-// import image7 from "../../../public/assets/Image7.png";

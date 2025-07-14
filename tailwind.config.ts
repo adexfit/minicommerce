@@ -11,7 +11,9 @@ const config: Config = {
             colors: {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
-                // "custom-color": "#7856FF",
+                "custom-color": "rgb(255 178 86)",
+                "custom-color2": "rgb(196, 110, 5)",
+                "primary-text-color": "rgb(170, 104, 23)",
             },
         },
     },

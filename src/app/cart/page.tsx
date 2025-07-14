@@ -2,7 +2,11 @@
 "use client";
 
 import { useCartStore } from "@/store/cart-store";
+import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import { useState } from "react";
 
 const CartPage = () => {
     const items = useCartStore((state) => state.items);
@@ -12,20 +16,41 @@ const CartPage = () => {
     const clearCart = useCartStore((state) => state.clearCart);
     const total = useCartStore((state) => state.getTotalPrice());
 
+    const [isNewOrder, setIsNewOrder] = useState(false);
+
     if (items.length === 0) {
-        return <p>Your cart is empty.</p>;
+        return (
+            <div className="mx-auto my-6">
+                <div className=" flex flex-col justify-center my-4">
+                    <ShoppingCart className="h-20 w-20 mx-auto text-gray-200 my-4" />
+                    <h2 className="text-lg font-medium mb-4 text-center text-gray-900">
+                        Your Cart is Empty
+                    </h2>
+                    <p className="text-center text-gray-400 text-sm italic">
+                        Add some products to your cart to see them here.
+                    </p>
+                    <Link
+                        href="/"
+                        className="px-4 py-2 rounded-lg text-white bg-primary-text-color hover:bg-custom-color font-bold w-auto mx-auto mt-4 text-center transition-all ease-in-out duration-300"
+                    >
+                        Home
+                    </Link>
+                </div>
+            </div>
+        );
     }
-    const checkout = () => {
-        // Implement your checkout logic here
-        alert("Checkout functionality is not implemented yet.");
-    };
 
     const handleclearCart = () => {
         clearCart();
     };
 
+    const handlePlaceOrder = () => {
+        clearCart();
+        window.location.href = `/orderplaced/${Date.now() + Math.random()}`;
+    };
+
     return (
-        <div className="my-8 p-8 w-[80%] mx-auto   rounded-lg shadow-lg">
+        <div className="my-8 p-8 md:w-[80%] mx-auto   rounded-lg md:shadow-lg">
             <h2 className="text-lg font-medium mb-4 text-center text-gray-900">
                 Your Cart
             </h2>
@@ -34,7 +59,7 @@ const CartPage = () => {
 
             <ul className="space-y-4 mt-4">
                 {items.map((item) => (
-                    <li key={item.id} className="flex items-center gap-4">
+                    <li key={item.id} className="flex items-start gap-4">
                         <Image
                             priority
                             src={`${item?.image}`}
@@ -45,7 +70,9 @@ const CartPage = () => {
                         />
                         <div className="flex-1">
                             <p>{item.name}</p>
-                            <p>${item.price}</p>
+                            <p className="text-sm text-gray-500">
+                                ${item.price}
+                            </p>
                             <div className="flex items-center gap-2">
                                 <button
                                     onClick={() => decrement(item.id)}
@@ -61,10 +88,16 @@ const CartPage = () => {
                                     +
                                 </button>
                             </div>
+                            {/* <button
+                                onClick={() => removeFromCart(item.id)}
+                                className="flex md:hidden text-primary-text-color px-4 py-2 mt-4 rounded hover:bg-red-500 hover:text-white hover:border-none"
+                            >
+                                Remove
+                            </button> */}
                         </div>
                         <button
                             onClick={() => removeFromCart(item.id)}
-                            className=" text-gray-600 px-4 py-2 rounded hover:bg-red-500 hover:text-white hover:border-none"
+                            className="flex  text-primary-text-color px-4 py-2 rounded hover:bg-red-500 hover:text-white hover:border-none"
                         >
                             Remove
                         </button>
@@ -73,18 +106,18 @@ const CartPage = () => {
                 <hr />
             </ul>
             <p className="pt-2">Cart Total: {total}</p>
-            <span className="flex justify-around items-center mt-4">
+            <span className="flex flex-row justify-around items-center mt-4">
                 <button
                     onClick={handleclearCart}
-                    className="mt-4 border-2 border-red-400 text-red-500   hover:bg-red-500 hover:text-white px-4 py-2 rounded-sm"
+                    className="mt-4 border-2 border-red-400 text-red-500   hover:bg-red-500 hover:text-white px-4 py-2 rounded-lg"
                 >
                     Clear Cart
                 </button>
                 <button
-                    onClick={checkout}
-                    className="mt-4 border-2 border-gray-700 text-gray-800   hover:bg-gray-800 hover:text-white px-4 py-2 rounded-sm"
+                    onClick={handlePlaceOrder}
+                    className=" mt-4 font-bold bg-primary-text-color text-white   hover:bg-custom-color hover:text-white px-4 py-2 rounded-lg"
                 >
-                    Checkout
+                    Place order
                 </button>
             </span>
         </div>

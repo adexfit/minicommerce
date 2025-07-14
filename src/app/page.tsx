@@ -1,13 +1,14 @@
 "use client";
 
 import Footer from "@/components/Footer";
+import Spinner from "@/components/Spinner";
 import { useProducts } from "@/hooks/useProducts";
 import Image from "next/image";
 import Link from "next/link";
 
 const Home = () => {
     const { data, isLoading, error } = useProducts();
-    if (isLoading) return <p>Loading...</p>;
+    if (isLoading) return <Spinner />;
     if (error) return <p>Error loading Products</p>;
 
     return (
@@ -44,7 +45,7 @@ const Home = () => {
                                         className="object-cover w-full"
                                     />
                                     <div className="bg-gray-50 p-4 ">
-                                        <p className="text-bold text-lg">
+                                        <p className="text-bold text-lg text-primary-text-color">
                                             {product.name}
                                         </p>
                                         <p className="text-gray-500">{`$ ${product.price}`}</p>
