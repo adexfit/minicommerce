@@ -36,7 +36,7 @@ const NavBar = () => {
                         id="search"
                         name="search"
                     >
-                        <Search className="h-6 w-6" />
+                        <Search className="size-6" />
                     </button>
 
                     <Link
@@ -44,7 +44,7 @@ const NavBar = () => {
                         className="text-black hover:text-custom-color transition-colors relative"
                         aria-label="Cart"
                     >
-                        <ShoppingCart className="h-6 w-6" />
+                        <ShoppingCart className="size-6" />
                         <p className="bg-custom-color rounded-full text-white text-xs px-[6px] py-[3px] absolute -top-4 -right-3">
                             {items.length}
                         </p>

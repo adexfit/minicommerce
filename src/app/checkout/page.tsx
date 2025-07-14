@@ -28,7 +28,7 @@ const Checkout = () => {
                     <Spinner />
                 ) : (
                     <div className=" flex flex-col justify-center my-4">
-                        <ShoppingCart className="h-20 w-20 mx-auto text-gray-200 my-4" />
+                        <ShoppingCart className="size-20 mx-auto text-gray-200 my-4" />
                         <h2 className="text-lg font-medium mb-4 text-center text-gray-900">
                             Your Cart is Empty
                         </h2>
@@ -51,7 +51,7 @@ const Checkout = () => {
     };
 
     return (
-        <div className="md:my-8 p-8 md:w-[80%] mx-auto   rounded-lg md:shadow-lg">
+        <div className="md:my-8 p-8 md:w-4/5 mx-auto   rounded-lg md:shadow-lg">
             <h2 className="text-lg font-medium mb-4 text-center text-gray-900">
                 Order Summary
             </h2>
@@ -67,7 +67,7 @@ const Checkout = () => {
                             alt={item.name}
                             width={16}
                             height={16}
-                            className="w-16 h-16 object-cover"
+                            className="size-16 object-cover"
                         />
                         <div className="flex-1">
                             <p>{item.name}</p>

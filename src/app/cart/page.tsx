@@ -44,7 +44,7 @@ const CartPage = () => {
     };
 
     return (
-        <div className="my-8 p-8 md:w-[80%] mx-auto rounded-lg md:shadow-lg">
+        <div className="my-8 p-8 md:w-4/5 mx-auto rounded-lg md:shadow-lg">
             <h2 className="text-lg font-medium mb-4 text-center text-gray-900">
                 Your Cart
             </h2>

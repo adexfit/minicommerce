@@ -36,7 +36,7 @@ const SingleProduct = ({ params }: ParamProp) => {
     };
 
     return (
-        <div className="flex flex-col md:flex-row py-8 w-[80%] mx-auto gap-6">
+        <div className="flex flex-col md:flex-row py-8 md:w-4/5 mx-auto gap-6">
             <div className="flex-1 relative">
                 <ToastContainer />
                 <h1 className="font-bold text-2xl text-gray-800">
@@ -55,7 +55,7 @@ const SingleProduct = ({ params }: ParamProp) => {
                 <p className="pt-4">
                     <span className="font-bold text-grey-300">
                         Description:
-                    </span>{" "}
+                    </span>
                     <br />
                     {product.description}
                 </p>
@@ -64,7 +64,7 @@ const SingleProduct = ({ params }: ParamProp) => {
                         className="flex gap-2 items-center bg-custom-color2 text-white font-semibold py-2 px-4 rounded hover:bg-gray-800 hover:text-gray-100 transition-all duration-300 ease-in-out"
                         onClick={handleAddToCart}
                     >
-                        <ShoppingCart className="w-5 h-5" />
+                        <ShoppingCart className="size-5" />
                         <span>Add to cart</span>
                     </button>
 
