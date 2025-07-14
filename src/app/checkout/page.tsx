@@ -32,9 +32,7 @@ const Checkout = () => {
                         <h2 className="text-lg font-medium mb-4 text-center text-gray-900">
                             Your Cart is Empty
                         </h2>
-                        {/* <p className="text-center text-gray-400 text-sm italic">
-                        Add some products to your cart to see them here.
-                    </p> */}
+
                         <Link
                             href="/"
                             className="px-4 py-2 rounded-lg text-white bg-primary-text-color hover:bg-custom-color font-bold w-auto mx-auto mt-4 text-center transition-all ease-in-out duration-300"

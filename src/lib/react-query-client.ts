@@ -1,11 +1,9 @@
-// lib/react-query-client.ts
 "use client";
 
 import { createAsyncStoragePersister } from "@tanstack/query-async-storage-persister";
 import { QueryClient } from "@tanstack/react-query";
 import { persistQueryClient } from "@tanstack/react-query-persist-client";
 
-// Create the QueryClient
 const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
@@ -14,7 +12,6 @@ const queryClient = new QueryClient({
     },
 });
 
-// Set up async storage persister using localStorage
 if (typeof window !== "undefined") {
     const localStoragePersister = createAsyncStoragePersister({
         storage: window.localStorage,

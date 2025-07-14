@@ -8,13 +8,6 @@ type ProductType = {
     description: string;
 };
 
-type ProductProp = {
-    id: string;
-    name: string;
-    price: number;
-    image?: string;
-};
-
 type ParamProp = {
     params: {
         slug: string;

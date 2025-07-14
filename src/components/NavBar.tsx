@@ -8,7 +8,7 @@ import { useState } from "react";
 const NavBar = () => {
     const items = useCartStore((state) => state.items);
     const [showSearch, setShowSearch] = useState(false);
-    // const [cartItemsNo, setCartItemsNo] = useState(items.length);
+
 
     return (
         <nav className="p-5 bg-white text-gray-800 shadow-md sticky top-0 z-50 ">

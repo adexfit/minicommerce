@@ -1,4 +1,3 @@
-// store/cart-store.ts
 "use client";
 
 import { StaticImageData } from "next/image";

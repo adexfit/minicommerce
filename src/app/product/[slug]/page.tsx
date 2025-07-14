@@ -3,15 +3,13 @@
 import Spinner from "@/components/Spinner";
 import { useProducts } from "@/hooks/useProducts";
 import { useCartStore } from "@/store/cart-store";
-import { cartProductProp, ParamProp, ProductType } from "@/types/types";
+import { ParamProp } from "@/types/types";
 import { ShoppingCart } from "lucide-react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
-import { ReactElement } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
 const SingleProduct = ({ params }: ParamProp) => {
-    const items = useCartStore((state) => state.items);
     const addToCart = useCartStore((state) => state.addToCart);
     const addedTocartNotice = () => toast("product added to cart successfully");
 
