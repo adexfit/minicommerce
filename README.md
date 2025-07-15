@@ -47,6 +47,10 @@ The app was designed using two colors. The primary color: rgb(170, 104, 23), i a
 
 Errors are caught within a try catch block to prevent the app from crashing
 
+## SEO
+
+I added the meta tags to the layout file.
+
 ## tsconfig & ESLint configs
 
 Here is my ESLint rules

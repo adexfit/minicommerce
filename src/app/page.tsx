@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const debouncedSearch = useDebounce(searchTerm, 300); // 300ms delay
+  const debouncedSearch = useDebounce(searchTerm, 300);
   const { data, isLoading, error } = useProducts();
   const [displayedProducts, setDisplayedProducts] = useState<ProductType[]>([]);
 
@@ -38,7 +38,7 @@ const Home = () => {
 
   return (
     <div>
-      <header className="flex hidden h-64 flex-col items-center justify-center bg-[url('/assets/header.png')] bg-cover bg-center text-black md:flex">
+      <header className="hidden h-64 flex-col items-center justify-center bg-[url('/assets/header.png')] bg-cover bg-center text-black md:flex">
         <h1 className="text-2xl font-extrabold text-gray-600">MiniCommerce</h1>
         <p className="text-sm text-gray-600">Buy your dream furniture...</p>
       </header>
