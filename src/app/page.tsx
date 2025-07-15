@@ -56,7 +56,7 @@ const Home = () => {
         {searchTerm && (
           <button
             onClick={() => setSearchTerm("")}
-            className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+            className="absolute right-7 top-2/3 -translate-y-1/2 text-gray-400 hover:text-gray-600"
             aria-label="Clear search"
           >
             <X size={18} />
