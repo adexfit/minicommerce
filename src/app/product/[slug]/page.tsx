@@ -45,7 +45,7 @@ const SingleProduct = ({ params }: ParamProp) => {
           src={product.image}
           width={425}
           height={500}
-          alt={product.name}
+          alt={`${product.name} image`}
         />
       </div>
       <div className="flex-1">

@@ -64,7 +64,7 @@ const Checkout = () => {
             <Image
               priority
               src={`${item?.image}`}
-              alt={item.name}
+              alt={`${item.name} image`}
               width={16}
               height={16}
               className="size-16 object-cover"

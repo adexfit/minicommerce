@@ -57,7 +57,7 @@ const CartPage = () => {
             <Image
               priority
               src={`${item?.image}`}
-              alt={item.name}
+              alt={`${item.name} image`}
               width={16}
               height={16}
               className="size-20 object-cover"
