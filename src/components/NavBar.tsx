@@ -10,7 +10,7 @@ const NavBar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-white p-5 text-gray-800 shadow-md">
       <div className="container mx-auto flex items-center justify-between px-4">
-        <Link href="/" className="text-primary text-xl font-bold">
+        <Link href="/" className="text-xl font-bold">
           <span className="text-custom-color">Mini</span>
           <span>Commerce</span>
         </Link>

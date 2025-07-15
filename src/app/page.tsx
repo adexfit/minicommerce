@@ -88,7 +88,7 @@ const Home = () => {
                       className="w-full object-cover"
                     />
                     <div className="bg-gray-50 p-4">
-                      <p className="text-bold text-lg text-primary-text-color">
+                      <p className="text-lg font-medium text-primary-text-color">
                         {product.name}
                       </p>
                       <p className="text-gray-500">{`$ ${product.price}`}</p>
