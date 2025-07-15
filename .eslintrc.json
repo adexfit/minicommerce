@@ -17,7 +17,7 @@
     "semi": "error",
     "tailwindcss/no-custom-classname": "off",
     "tailwindcss/classnames-order": "on",
-    "tailwindcss/no-contradicting-classname": "off",
+    "tailwindcss/no-contradicting-classname": "on",
     "@typescript-eslint/no-unused-vars": "off"
   },
   "settings": {
