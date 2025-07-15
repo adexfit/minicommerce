@@ -1,14 +1,13 @@
 const Footer = () => {
-    return (
-        <footer className="bg-gray-800 text-white text-center py-6">
-            <div className="container mx-auto px-4 flex flex-col md:flex-row justify-center items-center">
-                <p className="text-sm  md:text-left">
-                    &copy; {new Date().getFullYear()} MiniCommerce. All rights
-                    reserved.
-                </p>
-            </div>
-        </footer>
-    );
+  return (
+    <footer className="bg-gray-800 py-6 text-center text-white">
+      <div className="container mx-auto flex flex-col items-center justify-center px-4 md:flex-row">
+        <p className="text-sm md:text-left">
+          &copy; {new Date().getFullYear()} MiniCommerce. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

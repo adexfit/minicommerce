@@ -8,99 +8,95 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const Checkout = () => {
-    const items = useCartStore((state) => state.items);
-    const total = useCartStore((state) => state.getTotalPrice());
-    const clearCart = useCartStore((state) => state.clearCart);
-    const [loading, setLoading] = useState(true);
+  const items = useCartStore((state) => state.items);
+  const total = useCartStore((state) => state.getTotalPrice());
+  const clearCart = useCartStore((state) => state.clearCart);
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            setLoading(false);
-        }, 1000);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
 
-        return () => clearTimeout(timeout);
-    }, []);
+    return () => clearTimeout(timeout);
+  }, []);
 
-    if (items.length === 0) {
-        return (
-            <div className="mx-auto my-6">
-                {loading ? (
-                    <Spinner />
-                ) : (
-                    <div className=" flex flex-col justify-center my-4">
-                        <ShoppingCart className="size-20 mx-auto text-gray-200 my-4" />
-                        <h2 className="text-lg font-medium mb-4 text-center text-gray-900">
-                            Your Cart is Empty
-                        </h2>
-
-                        <Link
-                            href="/"
-                            className="px-4 py-2 rounded-lg text-white bg-primary-text-color hover:bg-custom-color font-bold w-auto mx-auto mt-4 text-center transition-all ease-in-out duration-300"
-                        >
-                            Home
-                        </Link>
-                    </div>
-                )}
-            </div>
-        );
-    }
-
-    const handlePlaceOrder = () => {
-        clearCart();
-        window.location.href = `/orderplaced/${Date.now() + Math.random()}`;
-    };
-
+  if (items.length === 0) {
     return (
-        <div className="md:my-8 p-8 md:w-4/5 mx-auto   rounded-lg md:shadow-lg">
-            <h2 className="text-lg font-medium mb-4 text-center text-gray-900">
-                Order Summary
+      <div className="mx-auto my-6">
+        {loading ? (
+          <Spinner />
+        ) : (
+          <div className="my-4 flex flex-col justify-center">
+            <ShoppingCart className="mx-auto my-4 size-20 text-gray-200" />
+            <h2 className="mb-4 text-center text-lg font-medium text-gray-900">
+              Your Cart is Empty
             </h2>
 
-            <hr />
-
-            <ul className="space-y-4 mt-4">
-                {items.map((item) => (
-                    <li key={item.id} className="flex items-start gap-4">
-                        <Image
-                            priority
-                            src={`${item?.image}`}
-                            alt={item.name}
-                            width={16}
-                            height={16}
-                            className="size-16 object-cover"
-                        />
-                        <div className="flex-1">
-                            <p>{item.name}</p>
-                            <p className="text-sm text-gray-500">
-                                ${item.price}
-                            </p>
-                        </div>
-                        <p className="flex  text-primary-text-color px-4 py-2 ">
-                            {item.quantity}
-                        </p>
-                    </li>
-                ))}
-                <hr />
-            </ul>
-            <p className="pt-2 text-center text-gray-500">
-                Cart Total: ${total}
-            </p>
-            <span className="flex flex-row justify-around items-center mt-4">
-                <Link href={"/cart"}>
-                    <button className="mt-4 border-2 border-red-400 text-red-500   hover:bg-red-500 hover:text-white px-4 py-2 rounded-lg">
-                        Edit Cart
-                    </button>
-                </Link>
-
-                <button
-                    onClick={handlePlaceOrder}
-                    className=" mt-4 font-bold bg-primary-text-color text-white   hover:bg-custom-color hover:text-white px-4 py-2 rounded-lg"
-                >
-                    Place order
-                </button>
-            </span>
-        </div>
+            <Link
+              href="/"
+              className="mx-auto mt-4 w-auto rounded-lg bg-primary-text-color px-4 py-2 text-center font-bold text-white transition-all duration-300 ease-in-out hover:bg-custom-color"
+            >
+              Home
+            </Link>
+          </div>
+        )}
+      </div>
     );
+  }
+
+  const handlePlaceOrder = () => {
+    clearCart();
+    window.location.href = `/orderplaced/${Date.now() + Math.random()}`;
+  };
+
+  return (
+    <div className="mx-auto rounded-lg p-8 md:my-8 md:w-4/5 md:shadow-lg">
+      <h2 className="mb-4 text-center text-lg font-medium text-gray-900">
+        Order Summary
+      </h2>
+
+      <hr />
+
+      <ul className="mt-4 space-y-4">
+        {items.map((item) => (
+          <li key={item.id} className="flex items-start gap-4">
+            <Image
+              priority
+              src={`${item?.image}`}
+              alt={item.name}
+              width={16}
+              height={16}
+              className="size-16 object-cover"
+            />
+            <div className="flex-1">
+              <p>{item.name}</p>
+              <p className="text-sm text-gray-500">${item.price}</p>
+            </div>
+            <p className="flex px-4 py-2 text-primary-text-color">
+              {item.quantity}
+            </p>
+          </li>
+        ))}
+        <hr />
+      </ul>
+      <p className="pt-2 text-center text-gray-500">Cart Total: ${total}</p>
+      <span className="mt-4 flex flex-row items-center justify-around">
+        <Link href={"/cart"}>
+          <button className="mt-4 rounded-lg border-2 border-red-400 px-4 py-2 text-red-500 hover:bg-red-500 hover:text-white">
+            Edit Cart
+          </button>
+        </Link>
+
+        <button
+          onClick={handlePlaceOrder}
+          className="mt-4 rounded-lg bg-primary-text-color px-4 py-2 font-bold text-white hover:bg-custom-color hover:text-white"
+        >
+          Place order
+        </button>
+      </span>
+    </div>
+  );
 };
 
 export default Checkout;
