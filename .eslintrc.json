@@ -16,7 +16,7 @@
   "rules": {
     "semi": "error",
     "tailwindcss/no-custom-classname": "off",
-    "tailwindcss/classnames-order": "on",
+    "tailwindcss/classnames-order": "warn",
     "tailwindcss/no-contradicting-classname": "on",
     "@typescript-eslint/no-unused-vars": "off"
   },
