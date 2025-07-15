@@ -1,7 +1,7 @@
 "use client";
 
 import { useCartStore } from "@/store/cart-store";
-import { Search, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
 const NavBar = () => {
