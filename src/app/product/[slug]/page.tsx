@@ -39,9 +39,7 @@ const SingleProduct = ({ params }: ParamProp) => {
         <div className="flex flex-col md:flex-row py-8 md:w-4/5 mx-auto gap-6 px-4">
             <div className="flex-1 relative">
                 <ToastContainer />
-                <h1 className="text-center md:text-left font-bold text-2xl text-gray-800">
-                    {product.name}
-                </h1>
+
                 <Image
                     priority
                     src={product.image}
@@ -51,12 +49,15 @@ const SingleProduct = ({ params }: ParamProp) => {
                 />
             </div>
             <div className="flex-1">
-                <p className="text-lg text-gray-600">{`$ ${product.price}`}</p>
-                <p className="pt-4">
-                    <span className="font-bold text-grey-300">
-                        Description:
+                <h1 className="text-left font-bold text-lg md:text-xl text-gray-800 mb-2">
+                    {product.name}
+                </h1>
+                <p className="text-lg text-custom-color2">{`Price: $ ${product.price}`}</p>
+                <p className="pt-4 text-justify text-gray-600">
+                    <span className="font-bold text-gray-800">
+                        Description:{" "}
                     </span>
-                    <br />
+
                     {product.description}
                 </p>
                 <span className="pt-4 flex justify-center flex-wrap gap-4">
