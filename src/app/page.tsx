@@ -13,13 +13,16 @@ import { useEffect, useState } from "react";
 const Home = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const debouncedSearch = useDebounce(searchTerm, 300); // 300ms delay
+    const { data, isLoading, error } = useProducts();
     const [displayedProducts, setDisplayedProducts] = useState<ProductType[]>(
         []
     );
-    const { data, isLoading, error } = useProducts();
+
     useEffect(() => {
-        if (debouncedSearch.trim() === "") {
+        if (isLoading) return;
+        if (debouncedSearch.trim() === "" && !isLoading) {
             setDisplayedProducts(data ? data : []);
+            console.log(data);
         } else {
             const filtered = data?.filter((product) =>
                 product.name
@@ -28,7 +31,12 @@ const Home = () => {
             );
             setDisplayedProducts(filtered ?? []);
         }
-    }, [debouncedSearch]);
+    }, [debouncedSearch, data, isLoading]);
+
+    if (data) console.log(data);
+
+    // setDisplayedProducts,
+
     if (isLoading) return <Spinner />;
     if (error) return <p>Error loading Products</p>;
 
@@ -68,7 +76,7 @@ const Home = () => {
                 <p className="text-lg font-extrabold text-gray-600">Products</p>
             </div>
             <main className="container mx-auto p-4">
-                {displayedProducts.length === 0 ? (
+                {displayedProducts.length === 0 && !isLoading ? (
                     <p className="text-center text-gray-500">
                         No products found.
                     </p>
