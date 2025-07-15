@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import OurQueryProvider from "@/components/providers/OurQueryProvider";
+import OurQueryProvider from "@/app/providers/OurQueryProvider";
 import NavBar from "../components/NavBar";
 import queryClient from "../lib/react-query-client";
 
