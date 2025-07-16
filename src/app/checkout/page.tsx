@@ -83,7 +83,7 @@ const Checkout = () => {
       <p className="pt-2 text-center text-gray-500">Cart Total: ${total}</p>
       <span className="mt-4 flex flex-row items-center justify-around">
         <Link href={"/cart"}>
-          <button className="mt-4 rounded-lg border-2 border-red-400 px-4 py-2 text-red-500 hover:bg-red-500 hover:text-white">
+          <button className="mt-4 rounded-lg border-2 border-gray-500 px-4 py-2 text-gray-600 hover:bg-red-500 hover:text-white">
             Edit Cart
           </button>
         </Link>
