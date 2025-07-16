@@ -20,7 +20,7 @@ const Home = () => {
     if (isLoading) return;
     if (debouncedSearch.trim() === "" && !isLoading) {
       setDisplayedProducts(data ? data : []);
-      console.log(data);
+      // console.log(data);
     } else {
       const filtered = data?.filter((product) =>
         product.name.toLowerCase().includes(debouncedSearch.toLowerCase()),
@@ -29,7 +29,7 @@ const Home = () => {
     }
   }, [debouncedSearch, data, isLoading]);
 
-  if (data) console.log(data);
+  // if (data) console.log(data);
 
   // setDisplayedProducts,
 
@@ -76,7 +76,7 @@ const Home = () => {
               return (
                 <Link href={`/product/${product.id}`} key={product.id}>
                   <div
-                    className="mx-auto scale-90 cursor-pointer shadow-lg transition-all duration-300 ease-in-out hover:scale-100"
+                    className="mx-auto scale-90 cursor-pointer shadow-lg transition-all duration-300 ease-in-out md:hover:scale-100"
                     key={product.id}
                   >
                     <Image
